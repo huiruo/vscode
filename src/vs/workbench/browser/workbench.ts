@@ -151,6 +151,7 @@ export class Workbench extends Layout {
 				const dialogService = accessor.get(IDialogService);
 				const notificationService = accessor.get(INotificationService) as NotificationService;
 
+				console.log('ruo-test-src/vs/workbench/browser/workbench.ts-->startup:', accessor);
 				// Layout
 				this.initLayout(accessor);
 

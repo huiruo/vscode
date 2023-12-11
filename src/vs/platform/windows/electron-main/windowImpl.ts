@@ -981,6 +981,8 @@ export class CodeWindow extends BaseWindow implements ICodeWindow {
 		// Indicate we are navigting now
 		this.readyState = ReadyState.NAVIGATING;
 
+		console.log('ruo-test-windowImpl===>', `vs/code/electron-sandbox/workbench/workbench${this.environmentMainService.isBuilt ? '' : '-dev'}.html`);
+
 		// Load URL
 		this._win.loadURL(FileAccess.asBrowserUri(`vs/code/electron-sandbox/workbench/workbench${this.environmentMainService.isBuilt ? '' : '-dev'}.html`).toString(true));
 
