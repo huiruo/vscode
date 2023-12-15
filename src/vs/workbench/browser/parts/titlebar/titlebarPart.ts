@@ -476,14 +476,18 @@ export class BrowserTitlebarPart extends Part implements ITitlebarPart {
 
 		this.updateStyles();
 
+		console.log('ruo-test-titlebarPart.ts:', this.element);
+
 		return this.element;
 	}
 
 	private createTitle(): void {
 		this.titleDisposables.clear();
 
+		console.log('ruo-createTitle-1',);
 		// Text Title
 		if (!this.isCommandCenterVisible) {
+			console.log('ruo-createTitle-2', this.windowTitle.value);
 			this.title.innerText = this.windowTitle.value;
 			this.titleDisposables.add(this.windowTitle.onDidChange(() => {
 				this.title.innerText = this.windowTitle.value;
@@ -492,6 +496,7 @@ export class BrowserTitlebarPart extends Part implements ITitlebarPart {
 
 		// Menu Title
 		else {
+			console.log('ruo-createTitle-3', this.instantiationService.createInstance(CommandCenterControl, this.windowTitle, this.hoverDelegate));
 			const commandCenter = this.instantiationService.createInstance(CommandCenterControl, this.windowTitle, this.hoverDelegate);
 			reset(this.title, commandCenter.element);
 			this.titleDisposables.add(commandCenter);

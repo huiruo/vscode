@@ -210,12 +210,16 @@ export class EditorGroupView extends Themable implements IEditorGroupView {
 
 			// Editor container
 			this.editorContainer = document.createElement('div');
+			console.log('ruo-test-editorGroupView.ts-constructor-editorContainer-3:', this.editorContainer);
 			this.editorContainer.classList.add('editor-container');
 			this.element.appendChild(this.editorContainer);
 
 			// Editor pane
 			this.editorPane = this._register(this.scopedInstantiationService.createInstance(EditorPanes, this.element, this.editorContainer, this));
 			this._onDidChange.input = this.editorPane.onDidChangeSizeConstraints;
+
+			console.log('ruo-test-editorGroupView.ts-constructor-editorPane-1:', this.editorPane, 'params-', { EditorPanes, element: this.element, editorContainer: this.editorContainer, this: this, scopedInstantiationService: this.scopedInstantiationService });
+			console.log('ruo-test-editorGroupView.ts-constructor-editorPane-2:', this.scopedInstantiationService.createInstance);
 
 			// Track Focus
 			this.doTrackFocus();

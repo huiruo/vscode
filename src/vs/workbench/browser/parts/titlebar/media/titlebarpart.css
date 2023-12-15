@@ -7,10 +7,12 @@
 .monaco-workbench .part.titlebar {
 	display: flex;
 	flex-direction: row;
+	background: green !important;
 }
 
 .monaco-workbench.mac .part.titlebar {
 	flex-direction: row-reverse;
+	background: rgb(17, 0, 255) !important;
 }
 
 /* Root Container */

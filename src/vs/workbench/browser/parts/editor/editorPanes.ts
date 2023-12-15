@@ -129,9 +129,11 @@ export class EditorPanes extends Disposable {
 
 	async openEditor(editor: EditorInput, options: IEditorOptions | undefined, internalOptions: IInternalEditorOpenOptions | undefined, context: IEditorOpenContext = Object.create(null)): Promise<IOpenEditorResult> {
 		try {
+			console.log('ruo--editorPanes:openEditor==>',);
 
 			// Assert the `EditorInputCapabilities.AuxWindowUnsupported` condition
 			if (getWindow(this.editorGroupParent) !== mainWindow && editor.hasCapability(EditorInputCapabilities.AuxWindowUnsupported)) {
+				console.log('ruo--editorPanes:openEditor==>1',);
 				return await this.doShowError(createEditorOpenError(localize('editorUnsupportedInAuxWindow', "This type of editor cannot be opened in other windows yet."), [
 					toAction({
 						id: 'workbench.editor.action.closeEditor', label: localize('openFolder', "Close Editor"), run: async () => {
@@ -143,6 +145,7 @@ export class EditorPanes extends Disposable {
 
 			// Open editor normally
 			else {
+				console.log('ruo--editorPanes:openEditor==>2-1',);
 				return await this.doOpenEditor(this.getEditorPaneDescriptor(editor), editor, options, internalOptions, context);
 			}
 		} catch (error) {

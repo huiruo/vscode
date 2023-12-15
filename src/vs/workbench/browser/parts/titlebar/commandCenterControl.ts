@@ -150,6 +150,7 @@ class CommandCenterCenterViewItem extends BaseActionViewItem {
 							const label = this._getLabel();
 							const labelElement = document.createElement('span');
 							labelElement.classList.add('search-label');
+							console.log('ruo-test-commandCenterControl-render:', label);
 							labelElement.innerText = label;
 							reset(container, searchIcon, labelElement);
 
